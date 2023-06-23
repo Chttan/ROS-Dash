@@ -5,7 +5,6 @@ An example is provided that loads custom ECG data from nested CSV files to publi
 
 ![image](https://github.com/Chttan/ROS-Dash/assets/26287515/63598aa1-9e09-4237-8b0b-d2a1256230ec)
 
-
 ## Setup
 Initially developed on a VM running Ubuntu 20.04 with ROS 1 Noetic. Below are the steps used to setup the VM from a fresh install.
 
@@ -91,10 +90,9 @@ catkin_make install
 
 # Additional modification to .bashrc for easy environment setup on new terminal launch
 echo "export TURTLEBOT3_MODEL=burger" >> ~/.bashrc
+
+sudo apt install ros-noetic-dynamixel-sdk ros-noetic-turtlebot3-msgs ros-noetic-turtlebot3
 ```
-
-`sudo apt install ros-noetic-dynamixel-sdk ros-noetic-turtlebot3-msgs ros-noetic-turtlebot3`
-
 
 ### Dash+Additional Python Dependency Setup
 
@@ -108,19 +106,23 @@ pip install pandas
 Example to see everything in action. In 5 separate terminals, run:
 
 1. Simulation Environment
+   
 `roslaunch turtlebot3_gazebo turtlebot3_world.launch`
 
 2. Bio Data Publisher
+   
 `python3 BioPub.py`
 
 3. Turtlebot SLAM Capabilities
+   
 `roslaunch turtlebot3_slam turtlebot3_slam.launch`
 
 4. Web Dashboard
+   
 `python3 web-dash.py`
 
 5. Manual keyboard control of Turtlebot
+    
 `roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch`
 
 Navigate to [127.0.0.1:8050](127.0.0.1:8050). Steer the turtlebot using teleop to map out the world. Observe the map updating in ROS-Dash compared to RViz. Press the button in the web dashboard to subscribe to the Bio Data publisher.
-
